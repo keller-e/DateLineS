@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DateLine - Portal de Agendamento</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link id="theme-stylesheet" th:href="@{'/css/index.css'}" rel="stylesheet">
+
+</head>
+
+<body class="p-4">
+
+
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container">
+        <div class="row align-items-center mb-4">
+            <div class="col-md-8">
+                <div class="hero">
+                    <h1 class="display-6">Portal DateLine</h1>
+                    <p class="lead">Gerencie agendamentos de clientes com rapidez. Agende, edite e acompanhe
+                        compromissos em poucos cliques.</p>
+                    <div>
+                        <a class="btn btn-primary btn-lg me-2" th:href="@{/atendimentos/novo}"><i
+                                class="bi bi-plus-lg"></i> Agendar agora</a>
+                        <a class="btn btn-outline-light btn-lg" th:href="@{/atendimentos}"><i
+                                class="bi bi-clock-history"></i> Meus atendimentos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="/images/appointment-illustration.svg" alt="Agendamento" class="img-fluid"
+                    style="max-height:180px;" onerror="this.style.display='none'">
+            </div>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="card card-action h-100" th:onclick="|location.href='@{/atendimentos/novo}'|">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calendar-plus" style="font-size:2rem;color:#0d6efd"></i>
+                        <h5 class="card-title mt-2">Agendar</h5>
+                        <p class="card-text small text-muted">Criar novo agendamento para cliente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-action h-100" th:onclick="|location.href='@{/atendimentos}'|">
+                    <div class="card-body text-center">
+                        <i class="bi bi-list-task" style="font-size:2rem;color:#0d6efd"></i>
+                        <h5 class="card-title mt-2">Meus Agendamentos</h5>
+                        <p class="card-text small text-muted">Visualizar e gerenciar seus horários.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-action h-100" th:onclick="|location.href='@{/clientes}'|">
+                    <div class="card-body text-center">
+                        <i class="bi bi-people" style="font-size:2rem;color:#0d6efd"></i>
+                        <h5 class="card-title mt-2">Clientes</h5>
+                        <p class="card-text small text-muted">Gerenciar base de clientes e contatos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer class="text-muted small text-center py-3">
+            © <span th:text="${#dates.format(#dates.createNow(),'yyyy')}">2025</span> DateLine — Sistema de Agendamento
+            • <a th:href="@{/atendimentos}">Listagem</a>
+        </footer>
+    </div>
+
+    <button class="theme-toggle-btn" onclick="toggleTheme()" title="Alternar Tema">
+        <i class="bi bi-moon-stars-fill"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{'/js/theme.js'}"></script>
+</body>
+
+</html>

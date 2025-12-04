@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light rounded mb-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" th:href="@{/index}">
+            <i class="bi bi-calendar2-check-fill me-2" style="font-size:1.4rem;color:#0d6efd"></i>
+            <strong>DateLine</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" th:href="@{/atendimentos/novo}">Novo Atendimento</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/atendimentos}">Atendimentos</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/clientes}">Clientes</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</html>
